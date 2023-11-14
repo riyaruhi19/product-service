@@ -1,16 +1,16 @@
 package dev.riya.productservice.services;
 
+import dev.riya.productservice.Dtos.CategoryDto;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.List;
+
 public interface CategoryService {
 
-    default String getAllCategories() {
-        return "Getting all Categories";
-    }
+    List<String> getAllCategories();
 
 
-    default String getproductsInCategories(Long categoryId) {
-        return "Get Products in Category with id:" + categoryId;
-    }
+     List<CategoryDto> getproductsInCategories(String categoryId) ;
+
 }

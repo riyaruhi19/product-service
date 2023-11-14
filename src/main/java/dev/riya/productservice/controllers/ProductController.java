@@ -24,6 +24,7 @@ public class ProductController {
     private ProductService productService;
 
     public ProductController(ProductService productService){
+
         this.productService=productService;
     }
 
@@ -93,7 +94,7 @@ public class ProductController {
     private Product updateProduct(@PathVariable("productId") Long productId,
                                  @RequestBody ProductDto productDto){
         Product product= new Product();
-        product.setId(productDto.getId());
+       //product.setId(productDto.getId());
         product.setCategory( new Category());
         product.getCategory().setName(productDto.getCategory());
         product.setTitle(productDto.getTitle());
@@ -106,7 +107,7 @@ public class ProductController {
     private Product replaceProduct(@PathVariable("productId") Long productId,
                                    @RequestBody ProductDto productDto) {
         Product product= new Product();
-        product.setId(productDto.getId());
+       // product.setId(productDto.getId());
         product.setCategory( new Category());
         product.getCategory().setName(productDto.getCategory());
         product.setTitle(productDto.getTitle());
@@ -116,8 +117,10 @@ public class ProductController {
     }
 
     @DeleteMapping("/{productId}")
-    private String deleteProduct(@PathVariable("productId") Long productId){
-        return "Deleting a Product";
+    private boolean deleteProduct(@PathVariable("productId") Long productId){
+
+        return  productService.deleteProduct(productId);
+        //return "Deleting a Product";
     }
 
 //    @ExceptionHandler(NotFoundException.class)

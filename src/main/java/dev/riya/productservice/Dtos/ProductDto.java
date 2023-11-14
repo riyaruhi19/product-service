@@ -6,17 +6,18 @@ import lombok.ToString;
 @Setter
 @ToString
 public class ProductDto {
-    private long id;
+  //  private long id;
     private String title;
     private Double price;
     private String description;
     private String image;
     private String category;
-    private RatingDto rating;
+  //  private RatingDto rating;
 
-    public long getId() {
-        return this.id;
-    }
+//    public long getId() {
+
+//        return this.id;
+//    }
 
     public String getTitle() {
         return this.title;
